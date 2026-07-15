@@ -469,6 +469,17 @@ button { font-family: inherit; }
 .shot__bar i { width: 9px; height: 9px; border-radius: 50%; background: #2c463b; display: inline-block; }
 .shot__bar span { margin-left: 10px; font-family: var(--font-mono); font-size: 10.5px; color: var(--text-muted); letter-spacing: 0.05em; }
 .shot img { width: 100%; height: auto; }
+.shot video { display: block; width: 100%; height: auto; max-height: 60vh; object-fit: contain; background: #0c0c0c; }
+
+/* ---- MAP PAIR (Egypt / USA, slide 11) ---- */
+.map-row { display: flex; justify-content: center; align-items: center; gap: 72px; margin-top: 30px; }
+.map-item { display: flex; align-items: center; gap: 22px; }
+.map-item__img { height: 108px; width: auto; filter: drop-shadow(0 14px 26px rgba(0,0,0,0.35)); }
+.map-item--eg .map-item__img { filter: drop-shadow(0 14px 26px rgba(224,138,68,0.28)); }
+.map-item--us .map-item__img { filter: drop-shadow(0 14px 26px rgba(47,168,119,0.28)); }
+.map-item__label { font-family: var(--font-display); font-size: 46px; line-height: 1; letter-spacing: -0.01em; }
+.map-item--eg .map-item__label { color: var(--egypt); }
+.map-item--us .map-item__label { color: var(--usa); }
 
 /* ---- NATIVE BAR CHART (model accuracy) ---- */
 .barchart { display: flex; align-items: flex-end; gap: 26px; height: 300px; padding: 0 6px; }
