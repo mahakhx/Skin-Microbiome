@@ -47,7 +47,7 @@
         <img class="cover__logo" src="assets/dubai-police-footer.png" alt="Dubai Police">
         <div>
           <div class="cover__meta-label">Presented by</div>
-          <div class="cover__names">Khalifa Ali Saleh Ali Hal<br>Muhammad Omer<br>Maha Jehanzeb Khan<br>Meera Mustafa Ahmed Naqib Sanqoor</div>
+          <div class="cover__names">Khalifa Ali Saleh Ali Hal<br>Mohammed Omar<br>Maha Jehanzeb Khan<br>Meera Mustafa Ahmed Naqib Sanqoor</div>
         </div>
         <div>
           <div class="cover__meta-label">Supervisor</div>
@@ -169,15 +169,15 @@
       </div>
 
       <div class="slide-body flow" style="margin-top:30px" data-rise="2">
-        <div class="flow__step"><span class="flow__n">1</span><span class="flow__h">Load &amp; join</span><span class="flow__b">Genus table + metadata on <code>sample_id</code>.</span></div>
+        <div class="flow__step"><div class="flow__top"><span class="flow__n">1</span><svg class="flow__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></div><span class="flow__h">Load &amp; join</span><span class="flow__b">Genus table + metadata on <code>sample_id</code>.</span></div>
         <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="flow__step"><span class="flow__n">2</span><span class="flow__h">Prevalence filter</span><span class="flow__b">Keep taxa in ≥10% of samples (1,176 → 679).</span></div>
+        <div class="flow__step"><div class="flow__top"><span class="flow__n">2</span><svg class="flow__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18l-7 8.5V19l-4 2v-8.5z"/></svg></div><span class="flow__h">Prevalence filter</span><span class="flow__b">Keep taxa in ≥10% of samples (1,176 → 679).</span></div>
         <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="flow__step"><span class="flow__n">3</span><span class="flow__h">CLR transform</span><span class="flow__b">Compositional log-ratio scaling.</span></div>
+        <div class="flow__step"><div class="flow__top"><span class="flow__n">3</span><svg class="flow__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12"/><path d="M13 4l3 3-3 3"/><path d="M20 17H8"/><path d="M11 14l-3 3 3 3"/></svg></div><span class="flow__h">CLR transform</span><span class="flow__b">Compositional log-ratio scaling.</span></div>
         <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="flow__step"><span class="flow__n">4</span><span class="flow__h">Split by timepoint</span><span class="flow__b">Train visits 1–2 · test on a later visit.</span></div>
+        <div class="flow__step"><div class="flow__top"><span class="flow__n">4</span><svg class="flow__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div><span class="flow__h">Split by timepoint</span><span class="flow__b">Train visits 1–2 · test on a later visit.</span></div>
         <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="flow__step"><span class="flow__n">5</span><span class="flow__h">Five classifiers</span><span class="flow__b">LR · SVM · RF · GB · k-NN.</span></div>
+        <div class="flow__step"><div class="flow__top"><span class="flow__n">5</span><svg class="flow__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="1.8"/><circle cx="5" cy="12" r="1.8"/><circle cx="5" cy="18" r="1.8"/><circle cx="19" cy="9" r="1.8"/><circle cx="19" cy="15" r="1.8"/><path d="M6.8 6.6l10.4 2.1M6.8 11.5l10.4-2.1M6.8 12.5l10.4 2.1M6.8 17.4l10.4-2.1"/></svg></div><span class="flow__h">Five classifiers</span><span class="flow__b">LR · SVM · RF · GB · k-NN.</span></div>
       </div>
 
       <div class="slide-body split" style="margin-top:30px; grid-template-columns: 1.15fr 0.85fr; gap:40px;" data-rise="3">
@@ -208,13 +208,13 @@
       </div>
 
       <div class="slide-body flow" style="margin-top:32px" data-rise="2">
-        <div class="flow__step"><span class="flow__n">1</span><span class="flow__h">Raw sequencing files</span><span class="flow__b">Millions of short DNA reads per sample (FASTQ) — unlabelled, error-prone.</span></div>
+        <div class="flow__step"><div class="flow__top"><span class="flow__n">1</span><svg class="flow__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v5h5"/><path d="M8 13c1.2-1.2 2.8-1.2 4 0s2.8 1.2 4 0"/><path d="M8 17c1.2-1.2 2.8-1.2 4 0s2.8 1.2 4 0"/></svg></div><span class="flow__h">Raw sequencing files</span><span class="flow__b">Millions of short DNA reads per sample (FASTQ) — unlabelled, error-prone.</span></div>
         <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="flow__step"><span class="flow__n">2</span><span class="flow__h">Quality clean-up</span><span class="flow__b">Galaxy trims low-quality ends and drops bad reads, in the browser.</span></div>
+        <div class="flow__step"><div class="flow__top"><span class="flow__n">2</span><svg class="flow__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16l-3 4.5v5L11 16v-7.5z"/><path d="M15 17l3 3M18 17l-3 3"/></svg></div><span class="flow__h">Quality clean-up</span><span class="flow__b">Galaxy trims low-quality ends and drops bad reads, in the browser.</span></div>
         <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="flow__step"><span class="flow__n">3</span><span class="flow__h">Identify the microbes</span><span class="flow__b">Each cleaned read is matched to a reference to name the bacteria.</span></div>
+        <div class="flow__step"><div class="flow__top"><span class="flow__n">3</span><svg class="flow__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg></div><span class="flow__h">Identify the microbes</span><span class="flow__b">Each cleaned read is matched to a reference to name the bacteria.</span></div>
         <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="flow__step"><span class="flow__n">4</span><span class="flow__h">Tidy microbe table</span><span class="flow__b">One row per genus, one column per sample — values = abundance.</span></div>
+        <div class="flow__step"><div class="flow__top"><span class="flow__n">4</span><svg class="flow__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 10h18"/><path d="M9 4v16"/></svg></div><span class="flow__h">Tidy microbe table</span><span class="flow__b">One row per genus, one column per sample — values = abundance.</span></div>
       </div>
 
       <div class="card" style="margin-top:32px; max-width:900px" data-rise="3">
@@ -243,7 +243,7 @@
           <p class="ref" style="margin-top:18px">PCA loadings describe abundance covariation · Oh et al. 2016, n = 585</p>
         </div>
         <figure class="plate" data-rise="2">
-          <img src="assets/pca-plot.jpeg" alt="Full-cohort PCA biplot comparing StandardScaler versus raw CLR; with scaling PC1 is driven by rare environmental soil taxa, while raw CLR is driven by abundant skin and oral biology.">
+          <img src="assets/fig-pca-biplot.png" alt="Full-cohort PCA biplot comparing StandardScaler versus raw CLR; with scaling PC1 is driven by rare environmental soil taxa, while raw CLR is driven by abundant skin and oral biology.">
           <figcaption class="plate__cap"><span class="plate__tag">Fig. 06</span> Full-cohort PCA biplot — scaling vs raw CLR</figcaption>
         </figure>
       </div>
@@ -258,9 +258,9 @@
       <span class="ghost-num" aria-hidden="true">07</span>
       <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Results · 02</span></header>
 
-      <div class="split" style="grid-template-columns: 1fr 1fr; gap:44px; height:100%; align-items:center;">
-        <figure class="plate" data-rise="1">
-          <img src="assets/heatmap.jpeg" alt="Heatmap of individual microbial signatures — each column a person, each row a skin microbe genus, red cells above the cohort average and blue cells below, with the mean percent abundance labelled in each cell.">
+      <div class="split" style="grid-template-columns: 1.35fr 0.95fr; gap:36px; height:100%; align-items:center;">
+        <figure class="plate" style="padding:10px 10px 9px;" data-rise="1">
+          <img src="assets/fig-individual-signatures.png" alt="Heatmap of individual microbial signatures — each column a person, each row a skin microbe genus, red cells above the cohort average and blue cells below, with the mean percent abundance labelled in each cell.">
           <figcaption class="plate__cap"><span class="plate__tag">Fig. 07</span> Individual microbial signatures — mean % abundance by person</figcaption>
         </figure>
         <div data-rise="2">
@@ -459,11 +459,33 @@
       <div class="map-row" data-rise="4">
         <div class="map-item map-item--eg">
           <img class="map-item__img" src="assets/egypt-map.png" alt="Map of Egypt">
-          <span class="map-item__label">Egypt</span>
+          <span class="map-item__label">
+            <svg class="flag flag--lg" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="30" height="20" fill="#fff"/>
+              <rect width="30" height="6.66" fill="#ce1126"/>
+              <rect y="13.33" width="30" height="6.66" fill="#000"/>
+              <circle cx="15" cy="10" r="2.1" fill="none" stroke="#c09a3e" stroke-width="0.6"/>
+            </svg>
+            Egypt
+          </span>
         </div>
         <div class="map-item map-item--us">
           <img class="map-item__img" src="assets/usa map.png" alt="Map of the United States">
-          <span class="map-item__label">USA</span>
+          <span class="map-item__label">
+            <svg class="flag flag--lg" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="30" height="20" fill="#b22234"/>
+              <g fill="#fff">
+                <rect y="1.54" width="30" height="1.54"/>
+                <rect y="4.62" width="30" height="1.54"/>
+                <rect y="7.69" width="30" height="1.54"/>
+                <rect y="10.77" width="30" height="1.54"/>
+                <rect y="13.85" width="30" height="1.54"/>
+                <rect y="16.92" width="30" height="1.54"/>
+              </g>
+              <rect width="12" height="10.77" fill="#3c3b6e"/>
+            </svg>
+            USA
+          </span>
         </div>
       </div>
 
@@ -534,7 +556,17 @@
 
       <div class="split" style="grid-template-columns: 1fr 1fr; gap:44px; margin-top:30px;">
         <div class="card" data-rise="2">
-          <div class="tag" style="margin-bottom:14px">China · 220 samples, 4 regions</div>
+          <div class="tag" style="margin-bottom:14px; display:flex; align-items:center; gap:10px">
+            <svg class="flag flag--sm" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="30" height="20" fill="#de2910"/>
+              <polygon points="5,2.2 6,5.1 9,5.1 6.6,6.9 7.5,9.8 5,8 2.5,9.8 3.4,6.9 1,5.1 4,5.1" fill="#ffde00"/>
+              <circle cx="10.2" cy="1.6" r="0.7" fill="#ffde00"/>
+              <circle cx="11.8" cy="3.6" r="0.7" fill="#ffde00"/>
+              <circle cx="11.8" cy="6.2" r="0.7" fill="#ffde00"/>
+              <circle cx="10.2" cy="8.2" r="0.7" fill="#ffde00"/>
+            </svg>
+            China · 220 samples, 4 regions
+          </div>
           <div class="metric" style="margin-bottom:14px"><span class="stat__num">~0.94</span><span class="stat__unit">AUC — geolocation</span></div>
           <p class="body">Palmar skin outperformed oral and nasal sites for geolocation.</p>
         </div>
@@ -581,7 +613,16 @@
         </div>
         <div data-rise="5" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;">
           <img src="assets/uae-map-emirates.png" alt="Map of the United Arab Emirates" style="width:100%; max-width:800px; height:auto;">
-          <span class="ref" style="text-align:center">United Arab Emirates</span>
+          <span class="ref" style="text-align:center; display:flex; align-items:center; justify-content:center; gap:9px">
+            <svg class="flag flag--sm" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="30" height="20" fill="#fff"/>
+              <rect y="0" width="30" height="6.66" fill="#00732f"/>
+              <rect y="6.66" width="30" height="6.66" fill="#fff"/>
+              <rect y="13.33" width="30" height="6.66" fill="#000"/>
+              <rect width="9" height="20" fill="#ff0000"/>
+            </svg>
+            United Arab Emirates
+          </span>
         </div>
       </div>
 
