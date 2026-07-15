@@ -1,0 +1,832 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microbes That Remember You — Forensic Skin Microbiome ID · Group 6</title>
+<meta name="description" content="Individual identification from the human skin microbiome using machine-learning classifiers. Dubai Police Future Forensics Pioneer Program, Group 6.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+
+<div class="deck">
+  <div class="stage" id="stage">
+
+    <!-- ============================================================
+         SLIDE 01 · COVER
+         ============================================================ -->
+    <section class="slide cover-slide cover" data-slide="1" aria-label="Cover">
+      <div class="fingerprint" aria-hidden="true">
+        <svg viewBox="0 0 300 300" width="300" fill="none" stroke="#2fa877" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="150" cy="150" r="18" stroke-opacity="0.9"/>
+          <path d="M150 108 a42 42 0 0 1 42 42" stroke-opacity="0.8"/>
+          <path d="M108 150 a42 42 0 0 1 42 -42" stroke-opacity="0.8"/>
+          <path d="M150 84 a66 66 0 0 1 66 66" stroke-opacity="0.65"/>
+          <path d="M84 150 a66 66 0 0 1 66 -66" stroke-opacity="0.65"/>
+          <path d="M150 60 a90 90 0 0 1 90 90" stroke-opacity="0.5"/>
+          <path d="M60 150 a90 90 0 0 1 90 -90" stroke-opacity="0.5"/>
+          <path d="M150 36 a114 114 0 0 1 114 114" stroke-opacity="0.35"/>
+          <path d="M36 150 a114 114 0 0 1 114 -114" stroke-opacity="0.35"/>
+          <path d="M150 12 a138 138 0 0 1 138 138" stroke-opacity="0.22"/>
+          <path d="M12 150 a138 138 0 0 1 138 -138" stroke-opacity="0.22"/>
+        </svg>
+      </div>
+
+      <header class="rail rail--top">
+        <span class="rail__dot"></span>
+        <span class="rail__brand">Future Forensics Pioneer Program</span>
+        <span class="rail__spacer"></span>
+        <span>ML Section · Group 6</span>
+      </header>
+
+      <div class="cover__left">
+        <span class="kicker" data-rise="1">Skin Microbiome Forensics</span>
+        <h1 class="cover__title" data-rise="2">Microbes That<br><em>Remember You</em></h1>
+        <p class="cover__sub" data-rise="3">Individual identification from the human skin microbiome using machine-learning classifiers.</p>
+        <p class="cover__tagline" data-rise="4">Every contact leaves a trace.</p>
+      </div>
+
+      <div class="cover__right" data-rise="5">
+        <img class="cover__logo" src="assets/dubai-police-footer.png" alt="Dubai Police">
+        <div>
+          <div class="cover__meta-label">Presented by</div>
+          <div class="cover__names">Khalifa Ali Saleh Ali Hal<br>Mohammed Omar<br>Maha Jehanzeb Khan<br>Meera Mustafa Ahmed Naqib Sanqoor</div>
+        </div>
+        <div>
+          <div class="cover__meta-label">Supervisor</div>
+          <div class="cover__super"><b>Dr. Hanan Al Mula</b></div>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom">
+        <span>Dubai Police</span>
+        <span class="rail__spacer"></span>
+        <span class="rail__counter">01 / 23</span>
+      </footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 02 · INTRODUCTION
+         ============================================================ -->
+    <section class="slide" data-slide="2" aria-label="Introduction">
+      <span class="ghost-num" aria-hidden="true">02</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Introduction</span></header>
+
+      <div class="head" style="max-width:900px" data-rise="1">
+        <span class="kicker">Introduction</span>
+        <h2 class="title t-52">The skin carries a<br>personal microbial <em>signature</em></h2>
+      </div>
+
+      <div class="slide-body split split--wide-left" style="margin-top:38px">
+        <div class="pillars" data-rise="2">
+          <div class="pillar">
+            <span class="pillar__k">Discriminating</span>
+            <span class="pillar__big">&gt;80%</span>
+            <span class="pillar__h">Different</span>
+            <span class="pillar__b">Two hands can differ by over 80% in the microbes they carry.</span>
+          </div>
+          <div class="pillar">
+            <span class="pillar__k">Recurring</span>
+            <span class="pillar__big">Persist</span>
+            <span class="pillar__h">Patterns hold</span>
+            <span class="pillar__b">Communities drift over time, yet recurring patterns stay recognisable.</span>
+          </div>
+          <div class="pillar">
+            <span class="pillar__k">Transferable</span>
+            <span class="pillar__big">Trace</span>
+            <span class="pillar__h">Left on touch</span>
+            <span class="pillar__b">Locard's principle — every contact leaves a trace — holds for microbes.</span>
+          </div>
+        </div>
+
+        <div class="card" data-rise="3">
+          <div class="tag" style="margin-bottom:14px">The core idea</div>
+          <p class="body">Skin microbes carry informative signatures, transferred onto everything we touch. These signatures vary over time — but <span class="hi">machine learning extracts the recurring, discriminatory patterns</span> that reveal who was there, even where human DNA fails.</p>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">Metcalf et al., Trends in Biotechnology (2017) · Dass, Abbai &amp; Ghai, Int. J. Legal Medicine (2026)</span><span class="rail__spacer"></span><span class="rail__counter">02 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 03 · THE NEED
+         ============================================================ -->
+    <section class="slide" data-slide="3" aria-label="The need">
+      <span class="ghost-num" aria-hidden="true">03</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">The Need</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">The Need</span>
+        <h2 class="title t-52">What happens when<br>DNA evidence <em>runs out?</em></h2>
+      </div>
+
+      <div class="slide-body split" style="margin-top:34px; grid-template-columns: 0.85fr 1.15fr;">
+        <div data-rise="2">
+          <div class="metrics" style="gap:52px">
+            <div class="metric">
+              <span class="stat__num" style="color:var(--egypt)">5<span style="font-size:40px;color:var(--text-muted)">/22</span></span>
+              <span class="stat__unit">Human STR profiles</span>
+            </div>
+            <div class="metric">
+              <span class="stat__num">20<span style="font-size:40px;color:var(--text-muted)">/22</span></span>
+              <span class="stat__unit">Microbial profiles</span>
+            </div>
+          </div>
+          <p class="body" style="margin-top:22px; max-width:34ch">A pilot touch-microbiome study on glass recovered <span class="hi">four times as many</span> microbial versus usable human-STR profiles.</p>
+        </div>
+
+        <div class="split" style="gap:38px" data-rise="3">
+          <div>
+            <div class="tag" style="margin-bottom:14px">Why skin microbes help</div>
+            <div class="plusminus">
+              <div class="pmitem pmitem--plus"><span class="pmitem__s">+</span><span>Short, abundant microbial DNA resists degradation</span></div>
+              <div class="pmitem pmitem--plus"><span class="pmitem__s">+</span><span>Recoverable even when STR profiling fails</span></div>
+              <div class="pmitem pmitem--plus"><span class="pmitem__s">+</span><span>Often tolerant of inhibitors that block STR</span></div>
+              <div class="pmitem pmitem--plus"><span class="pmitem__s">+</span><span>ML resolves mixed profiles that muddle STR</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="tag tag--gold" style="margin-bottom:14px">Where human DNA falls short</div>
+            <div class="plusminus">
+              <div class="pmitem pmitem--minus"><span class="pmitem__s">–</span><span>Long human DNA degrades fast; low template</span></div>
+              <div class="pmitem pmitem--minus"><span class="pmitem__s">–</span><span>Mixed samples with no clean profile</span></div>
+              <div class="pmitem pmitem--minus"><span class="pmitem__s">–</span><span>No match in existing DNA databases</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">Procopio et al., in Dass et al. (2026)</span><span class="rail__spacer"></span><span class="rail__counter">03 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 04 · METHODS
+         ============================================================ -->
+    <section class="slide" data-slide="4" aria-label="Methods">
+      <span class="ghost-num" aria-hidden="true">04</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Methods</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">Methods</span>
+        <h2 class="title t-44">Our end-to-end <em>machine-learning</em> pipeline</h2>
+      </div>
+
+      <div class="slide-body flow" style="margin-top:30px" data-rise="2">
+        <div class="flow__step"><span class="flow__n">1</span><span class="flow__h">Load &amp; join</span><span class="flow__b">Genus table + metadata on <code>sample_id</code>.</span></div>
+        <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow__step"><span class="flow__n">2</span><span class="flow__h">Prevalence filter</span><span class="flow__b">Keep taxa in ≥10% of samples (1,176 → 679).</span></div>
+        <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow__step"><span class="flow__n">3</span><span class="flow__h">CLR transform</span><span class="flow__b">Compositional log-ratio scaling.</span></div>
+        <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow__step"><span class="flow__n">4</span><span class="flow__h">Split by timepoint</span><span class="flow__b">Train visits 1–2 · test on a later visit.</span></div>
+        <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow__step"><span class="flow__n">5</span><span class="flow__h">Five classifiers</span><span class="flow__b">LR · SVM · RF · GB · k-NN.</span></div>
+      </div>
+
+      <div class="slide-body split" style="margin-top:30px; grid-template-columns: 1.15fr 0.85fr; gap:40px;" data-rise="3">
+        <div class="card">
+          <div class="tag" style="margin-bottom:12px">Two learning modes, together</div>
+          <p class="body" style="margin-bottom:8px"><span class="accent">Supervised</span> (LR · SVM · RF · GB · k-NN) → classify and identify <span class="hi">who</span> a sample came from.</p>
+          <p class="body"><span class="gold">Unsupervised</span> (PCA · PCoA · k-means) → discover structure with no labels; here it is body-site, not person.</p>
+        </div>
+        <div style="align-self:center">
+          <div class="cover__meta-label" style="margin-bottom:10px">Dataset</div>
+          <p class="body"><span class="hi">Oh et al. 2016 (Cell)</span> shotgun metagenomics — 585 samples · 12 individuals · 17 body sites · 1,176 genera per sample.</p>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__logo-wrap"></span><span class="rail__spacer"></span><span class="rail__counter">04 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 05 · LOCAL DATA (Egyptian pilot prep)
+         ============================================================ -->
+    <section class="slide" data-slide="5" aria-label="Local data — Egyptian pilot preparation">
+      <span class="ghost-num" aria-hidden="true">05</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Local Data</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">Local Data</span>
+        <h2 class="title t-44">Preparing the Egyptian pilot — <em>same format</em> as the USA data</h2>
+      </div>
+
+      <div class="slide-body flow" style="margin-top:32px" data-rise="2">
+        <div class="flow__step"><span class="flow__n">1</span><span class="flow__h">Raw sequencing files</span><span class="flow__b">Millions of short DNA reads per sample (FASTQ) — unlabelled, error-prone.</span></div>
+        <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow__step"><span class="flow__n">2</span><span class="flow__h">Quality clean-up</span><span class="flow__b">Galaxy trims low-quality ends and drops bad reads, in the browser.</span></div>
+        <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow__step"><span class="flow__n">3</span><span class="flow__h">Identify the microbes</span><span class="flow__b">Each cleaned read is matched to a reference to name the bacteria.</span></div>
+        <div class="flow__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow__step"><span class="flow__n">4</span><span class="flow__h">Tidy microbe table</span><span class="flow__b">One row per genus, one column per sample — values = abundance.</span></div>
+      </div>
+
+      <div class="card" style="margin-top:32px; max-width:900px" data-rise="3">
+        <div class="tag" style="margin-bottom:12px">Why this matters</div>
+        <p class="body">The Egyptian pilot (<span class="hi">n = 5, 16S rRNA V3–V4</span>) is reprocessed into the exact same genus-table format as the USA data — so the two populations can be compared directly, <span class="accent">on equal footing.</span></p>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">Ramadan, Solyman, Taha &amp; Hanora — human skin microbiome in healthy Egyptian individuals (Al-Azhar &amp; Suez Canal University)</span><span class="rail__spacer"></span><span class="rail__counter">05 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 06 · RESULTS 02 (PCA biplot)
+         ============================================================ -->
+    <section class="slide" data-slide="6" aria-label="Results — what drives the main axis">
+      <span class="ghost-num" aria-hidden="true">06</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Results · 02</span></header>
+
+      <div class="split" style="grid-template-columns: 0.92fr 1.08fr; gap:44px; height:100%; align-items:center;">
+        <div data-rise="1">
+          <span class="kicker">Results · 02</span>
+          <h2 class="title t-44" style="margin:16px 0 22px; max-width:16ch">What drives the main axis — <em>real skin biology</em>, not artifact</h2>
+          <p class="body" style="margin-bottom:16px">Standardizing rescales all 679 genera to equal variance, amplifying rare soil taxa into PC1. On raw CLR the same axis is built from <span class="hi">abundant skin residents</span> — <i>Cutibacterium</i>, <i>Malassezia</i>, oral genera.</p>
+          <div class="card">
+            <p class="body"><span class="accent">In simple terms:</span> our method correctly picks up real skin bacteria, not background noise.</p>
+          </div>
+          <p class="ref" style="margin-top:18px">PCA loadings describe abundance covariation · Oh et al. 2016, n = 585</p>
+        </div>
+        <figure class="plate" data-rise="2">
+          <img src="assets/fig-pca-biplot.png" alt="Full-cohort PCA biplot comparing StandardScaler versus raw CLR; with scaling PC1 is driven by rare environmental soil taxa, while raw CLR is driven by abundant skin and oral biology.">
+          <figcaption class="plate__cap"><span class="plate__tag">Fig. 06</span> Full-cohort PCA biplot — scaling vs raw CLR</figcaption>
+        </figure>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">06 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 07 · RESULTS 03 (B/W ratio)
+         ============================================================ -->
+    <section class="slide" data-slide="7" aria-label="Results — which taxa identify a person">
+      <span class="ghost-num" aria-hidden="true">07</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Results · 03</span></header>
+
+      <div class="split" style="grid-template-columns: 1fr 1fr; gap:44px; height:100%; align-items:center;">
+        <figure class="plate" data-rise="1">
+          <img src="assets/fig-bw-ranking.png" alt="Horizontal bar chart ranking the most defensible individual-identifying taxa by between-person over within-person variance; Corynebacterium ranks highest, with a forensic threshold at a ratio of one.">
+          <figcaption class="plate__cap"><span class="plate__tag">Fig. 07</span> Most defensible individual-identifying taxa · B/W ratio (Oh 2016)</figcaption>
+        </figure>
+        <div data-rise="2">
+          <span class="kicker">Results · 03</span>
+          <h2 class="title t-44" style="margin:16px 0 22px; max-width:15ch">Which taxa actually <em>identify a person</em></h2>
+          <p class="body" style="margin-bottom:14px"><span class="hi">The B/W ratio.</span> Between / within-person variance ranks each taxon. High B/W = consistent within a person, different between people = a forensic signature.</p>
+          <div class="card" style="margin-bottom:16px">
+            <div class="tag" style="margin-bottom:10px">Defensible shortlist</div>
+            <p class="body"><i>Corynebacterium</i> · <i>Cutibacterium</i> (+ phage) · <i>Malassezia</i> · <i>Gardnerella</i> · <i>Micrococcus</i> · <i>Enhydrobacter</i> — high B/W and abundant.</p>
+          </div>
+          <p class="body muted">Rare high-B/W taxa are treated with caution — on near-zero-abundance genera the ratio is fragile (a sparsity artifact).</p>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">07 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 08 · RESULTS 04 (site accuracy)
+         ============================================================ -->
+    <section class="slide" data-slide="8" aria-label="Results — identification works best where identifying taxa live">
+      <span class="ghost-num" aria-hidden="true">08</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Results · 04</span></header>
+
+      <div class="split" style="grid-template-columns: 0.95fr 1.05fr; gap:44px; height:100%; align-items:center;">
+        <div data-rise="1">
+          <span class="kicker">Results · 04</span>
+          <h2 class="title t-44" style="margin:16px 0 24px; max-width:16ch">Identification works best where the <em>identifying taxa live</em></h2>
+          <div class="metrics" style="margin-bottom:22px">
+            <div class="metric">
+              <span class="stat__num">r=0.86</span>
+              <span class="stat__cap" style="max-width:20ch">Within-site match accuracy tracks the abundance of identifying taxa at that site.</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="tag tag--gold" style="margin-bottom:10px">Palm is the floor — 46%</div>
+            <p class="body">The dry, high-contact hypothenar palm constantly picks up new bacteria, washing out the personal signal. Sebaceous sites ID best; the palm — constantly re-inoculated — is worst.</p>
+          </div>
+        </div>
+        <figure class="plate" data-rise="2">
+          <img src="assets/fig-site-accuracy.png" alt="Scatter plot of individual match accuracy versus abundance of top identifying taxa per body site; correlation r equals 0.86. Sebaceous sites score highest around 57 to 61 percent, the dry palm lowest at 46 percent.">
+          <figcaption class="plate__cap"><span class="plate__tag">Fig. 08</span> Match accuracy vs identifying-taxa abundance, by site</figcaption>
+        </figure>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">08 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 09 · RELATED WORK (comparison table)
+         ============================================================ -->
+    <section class="slide" data-slide="9" aria-label="Related work">
+      <span class="ghost-num" aria-hidden="true">09</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Related Work</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">Related Work</span>
+        <h2 class="title t-44">The closest study to ours — <em>and how we compare</em></h2>
+      </div>
+
+      <div class="ctable" style="margin-top:26px" data-rise="2">
+        <div class="ctable__head">
+          <div></div>
+          <div class="chd chd--a">Our pipeline<span class="chd__sub">Group 6</span></div>
+          <div class="chd chd--b">Reference study<span class="chd__sub">Schmedes et al. 2017</span></div>
+        </div>
+        <div class="crow"><div class="crow__k">Feature</div><div class="crow__a">Genus-level abundance (relative %)</div><div class="crow__b">Nucleotide diversity (π) of strain markers</div></div>
+        <div class="crow"><div class="crow__k">Method</div><div class="crow__a">Prevalence filter → CLR → supervised classifiers</div><div class="crow__b">StrainPhlAn / PanPhlAn on shotgun reads</div></div>
+        <div class="crow"><div class="crow__k">Tools</div><div class="crow__a">Galaxy / Kraken2-style — runs on a laptop</div><div class="crow__b">HPC — billions of raw reads, base alignment</div></div>
+        <div class="crow crow--hi"><div class="crow__k">Result</div><div class="crow__a">92.6% Top-1; finds abundant skin taxa</div><div class="crow__b">Up to 100% at 3 sites; π &gt; presence/absence</div></div>
+        <div class="crow"><div class="crow__k">Insight</div><div class="crow__a">Abundance is blind to within-strain variation</div><div class="crow__b">Deepest identity lives at the strain level</div></div>
+      </div>
+
+      <div class="card" style="margin-top:22px" data-rise="3">
+        <div class="tag" style="margin-bottom:10px">Both converge on the same organisms</div>
+        <p class="body">Abundance and π are a ladder, not a contradiction — Schmedes' feature selection also landed on <i>Cutibacterium</i> &amp; <i>Corynebacterium</i>. Genus abundance carries enough signal for strong ID; strain π carries more.</p>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">Schmedes, Woerner &amp; Budowle, Appl. Environ. Microbiol. 83:e01672-17 (2017)</span><span class="rail__spacer"></span><span class="rail__counter">09 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 10 · RESULTS 05 (model accuracy — native chart)
+         ============================================================ -->
+    <section class="slide" data-slide="10" aria-label="Results — which model identifies best">
+      <span class="ghost-num" aria-hidden="true">10</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Results · 05</span></header>
+
+      <div class="split" style="grid-template-columns: 0.72fr 1.28fr; gap:44px; height:100%; align-items:center;">
+        <div data-rise="1">
+          <span class="kicker">Results · 05</span>
+          <h2 class="title t-44" style="margin:16px 0 22px">Which model <em>identifies best</em></h2>
+          <div class="metric" style="margin-bottom:8px">
+            <span class="stat__num">92.6%</span>
+            <span class="stat__cap" style="max-width:24ch">Top-1 accuracy — <span class="hi">Logistic Regression</span> (≈ 98% Top-3).</span>
+          </div>
+          <p class="body" style="margin-top:16px">Top-1 = the model's single best guess was correct; Top-3 = the right person was in its top three. Chance level is far below every bar — every model beats guessing.</p>
+          <p class="body muted" style="margin-top:12px">LR leads: with high-dimensional, scaled features and modest samples, a linear model generalises better than heavier ensembles here.</p>
+        </div>
+
+        <div data-rise="2">
+          <div class="chart-legend" style="margin-bottom:20px; justify-content:flex-end">
+            <span><i style="background:var(--accent-bright)"></i>Top-1 accuracy</span>
+            <span><i style="background:rgba(89,214,160,0.4)"></i>Top-3 accuracy</span>
+          </div>
+          <div class="barchart">
+            <div class="barcol barcol--lead">
+              <div class="barcol__pair">
+                <div class="bar bar--t1" style="height:92.6%"><span class="bar__v">92.6</span></div>
+                <div class="bar bar--t3" style="height:98%"><span class="bar__v">98</span></div>
+              </div>
+              <span class="barcol__label">Logistic<br>Regression</span>
+            </div>
+            <div class="barcol">
+              <div class="barcol__pair">
+                <div class="bar bar--t1" style="height:87%"><span class="bar__v">87</span></div>
+                <div class="bar bar--t3" style="height:95%"><span class="bar__v">95</span></div>
+              </div>
+              <span class="barcol__label">SVM<br>(RBF)</span>
+            </div>
+            <div class="barcol">
+              <div class="barcol__pair">
+                <div class="bar bar--t1" style="height:83%"><span class="bar__v">83</span></div>
+                <div class="bar bar--t3" style="height:93%"><span class="bar__v">93</span></div>
+              </div>
+              <span class="barcol__label">Gradient<br>Boosting</span>
+            </div>
+            <div class="barcol">
+              <div class="barcol__pair">
+                <div class="bar bar--t1" style="height:80%"><span class="bar__v">80</span></div>
+                <div class="bar bar--t3" style="height:91%"><span class="bar__v">91</span></div>
+              </div>
+              <span class="barcol__label">Random<br>Forest</span>
+            </div>
+            <div class="barcol">
+              <div class="barcol__pair">
+                <div class="bar bar--t1" style="height:72%"><span class="bar__v">72</span></div>
+                <div class="bar bar--t3" style="height:86%"><span class="bar__v">86</span></div>
+              </div>
+              <span class="barcol__label">k-NN<br>(k=5)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">Individual-ID accuracy by model · values from individual_id_results.csv (Oh et al. 2016)</span><span class="rail__spacer"></span><span class="rail__counter">10 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 11 · LOCAL DATA (populations share / diverge)
+         ============================================================ -->
+    <section class="slide" data-slide="11" aria-label="Local data — populations share and diverge">
+      <span class="ghost-num" aria-hidden="true">11</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Local Data</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">Local Data</span>
+        <h2 class="title t-44">What the two populations share — <em>and where they diverge</em></h2>
+      </div>
+
+      <div class="split" style="grid-template-columns: 1.15fr 0.85fr; gap:50px; margin-top:26px; align-items:center;">
+        <div data-rise="2">
+          <div class="compare-title"><span class="lft">◆ Egypt · n=5</span><span>Dominant genera</span><span class="rgt">USA · n=69 ●</span></div>
+          <div class="drow">
+            <div class="dcell--l"><div class="dbar dbar--l" style="width:88%"><span class="dbar__v">42%</span></div></div>
+            <div class="drow__label">Klebsiella</div>
+            <div class="dcell--r"></div>
+          </div>
+          <div class="drow">
+            <div class="dcell--l"></div>
+            <div class="drow__label">Cutibacterium</div>
+            <div class="dcell--r"><div class="dbar dbar--r" style="width:70%"><span class="dbar__v">33%</span></div></div>
+          </div>
+          <div class="drow">
+            <div class="dcell--l"><div class="dbar dbar--l" style="width:52%"><span class="dbar__v">24%</span></div></div>
+            <div class="drow__label">Bacillus</div>
+            <div class="dcell--r"></div>
+          </div>
+          <div class="drow">
+            <div class="dcell--l"></div>
+            <div class="drow__label">Corynebacterium</div>
+            <div class="dcell--r"><div class="dbar dbar--r" style="width:38%"><span class="dbar__v">16%</span></div></div>
+          </div>
+        </div>
+
+        <div data-rise="3">
+          <div class="venn">
+            <div class="venn__c venn__c--l"><div class="venn__seg venn__l"><b>397</b>Egypt only</div></div>
+            <div class="venn__c venn__c--r"><div class="venn__seg venn__r"><b>870</b>USA only</div></div>
+            <div class="venn__seg venn__m"><b>195</b>shared</div>
+          </div>
+          <p class="ref" style="text-align:center; margin-top:16px">Genera shared vs population-unique</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:24px; max-width:940px" data-rise="4">
+        <p class="body">Bootstrap confirms the gap is real; <i>Klebsiella</i> / <i>Bacillus</i> dominance is flagged as a <span class="gold">likely batch / preprocessing effect</span> in QC.</p>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">11 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 12 · LOCAL DATA (USA body site held constant)
+         ============================================================ -->
+    <section class="slide" data-slide="12" aria-label="Local data — USA body site across time">
+      <span class="ghost-num" aria-hidden="true">12</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Local Data</span></header>
+
+      <div class="split" style="grid-template-columns: 0.82fr 1.18fr; gap:42px; height:100%; align-items:center;">
+        <div data-rise="1">
+          <span class="kicker">Local Data</span>
+          <h2 class="title t-36" style="margin:16px 0 22px; max-width:18ch">USA — same body site, <em>held constant</em> across time</h2>
+          <div class="metrics" style="margin-bottom:20px; gap:34px">
+            <div class="metric"><span class="stat__num">57–61%</span><span class="stat__unit">Match accuracy</span></div>
+            <div class="metric"><span class="stat__num stat__num--gold" style="font-size:60px">8%</span><span class="stat__unit">By chance</span></div>
+          </div>
+          <p class="body">With site held constant, an individual's swabs still cluster together. Knowing the site a sample came from is <span class="hi">extra information</span> that strengthens an identification, on top of the person-level microbial signal.</p>
+          <p class="ref" style="margin-top:16px">Match accuracy uses ALL microbial data; the 2-D projection is only a shadow of the real separation.</p>
+        </div>
+        <figure class="plate" data-rise="2">
+          <img src="assets/fig-pca-usa.png" alt="Three PCA panels for sebaceous sites — behind the ear, back and centre of chest — showing USA individuals' swabs clustering by person, with match accuracies of 61, 61 and 57 percent versus 8 percent by chance.">
+          <figcaption class="plate__cap"><span class="plate__tag">Fig. 12</span> USA sebaceous sites — same site, does the microbiome reveal who?</figcaption>
+        </figure>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">12 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 13 · LOCAL DATA (Egypt vs USA)
+         ============================================================ -->
+    <section class="slide" data-slide="13" aria-label="Local data — Egypt versus USA">
+      <span class="ghost-num" aria-hidden="true">13</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Local Data</span></header>
+
+      <div class="split" style="grid-template-columns: 1.28fr 0.72fr; gap:42px; height:100%; align-items:center;">
+        <figure class="plate" data-rise="1">
+          <img src="assets/fig-pca-egypt-usa.png" alt="Six PCA panels fixing both body site and USA timepoint; in every panel the Egypt samples in orange sit far to the right of the USA samples, indicating a population or processing difference rather than a site or time effect.">
+          <figcaption class="plate__cap"><span class="plate__tag">Fig. 13</span> Egypt vs USA — same body site, split by USA timepoint</figcaption>
+        </figure>
+        <div data-rise="2">
+          <span class="kicker">Local Data</span>
+          <h2 class="title t-36" style="margin:16px 0 22px; max-width:16ch">Egypt vs USA — the gap isn't <em>site or time</em></h2>
+          <p class="body" style="margin-bottom:16px">Each panel fixes both body site and USA timepoint, yet <span style="color:var(--egypt);font-weight:600">Egypt (orange)</span> sits far to the right in every one — so that separation reflects a <span class="hi">population or processing difference</span>, not a site or time effect.</p>
+          <p class="ref">PC1–PC2 is a 2-D shadow of CLR-transformed data; the full separation spans many more dimensions.</p>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">13 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 14 · PROOF AT SCALE
+         ============================================================ -->
+    <section class="slide" data-slide="14" aria-label="Proof at scale — geographic locator">
+      <span class="ghost-num" aria-hidden="true">14</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Proof at Scale</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">Proof at Scale</span>
+        <h2 class="title t-44">The microbiome already works as a <em>geographic locator</em></h2>
+      </div>
+
+      <div class="split" style="grid-template-columns: 1fr 1fr; gap:44px; margin-top:30px;">
+        <div class="card" data-rise="2">
+          <div class="tag" style="margin-bottom:14px">China · 220 samples, 4 regions</div>
+          <div class="metric" style="margin-bottom:14px"><span class="stat__num">~0.94</span><span class="stat__unit">AUC — geolocation</span></div>
+          <p class="body">Palmar skin outperformed oral and nasal sites for geolocation.</p>
+        </div>
+        <div class="card" data-rise="3">
+          <div class="tag" style="margin-bottom:14px">And across 4 continents</div>
+          <p class="body" style="margin-bottom:12px">Barbados, Chile, South Africa and Thailand showed the same signal in oral and stool microbiomes, even after diet and lifestyle.</p>
+          <p class="body"><span class="gold">Note the inversion:</span> the palm is our weakest site for identifying a person, and the strongest for locating them.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:24px; max-width:1000px; border-color:var(--accent-line);" data-rise="4">
+        <div class="tag" style="margin-bottom:10px">The bottleneck is reference data, not algorithms</div>
+        <p class="body">The Gulf is still a blank space on the forensic-microbiome map — and that is precisely the gap <span class="accent">this project sets out to close.</span></p>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">Lei et al. (2024) · Clarke et al. (2022)</span><span class="rail__spacer"></span><span class="rail__counter">14 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 15 · THE IMPACT (statement)
+         ============================================================ -->
+    <section class="slide" data-slide="15" aria-label="The impact">
+      <span class="ghost-num" aria-hidden="true">15</span>
+      <div class="fingerprint" aria-hidden="true" style="right:-160px; top:50%; transform:translateY(-50%); width:520px; opacity:0.28; mask-image:radial-gradient(closest-side,#000 55%,transparent 82%);">
+        <svg viewBox="0 0 300 300" width="300" fill="none" stroke="#2fa877" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="150" cy="150" r="18"/>
+          <path d="M150 108 a42 42 0 0 1 42 42"/><path d="M108 150 a42 42 0 0 1 42 -42"/>
+          <path d="M150 84 a66 66 0 0 1 66 66"/><path d="M84 150 a66 66 0 0 1 66 -66"/>
+          <path d="M150 60 a90 90 0 0 1 90 90"/><path d="M60 150 a90 90 0 0 1 90 -90"/>
+          <path d="M150 36 a114 114 0 0 1 114 114"/><path d="M36 150 a114 114 0 0 1 114 -114"/>
+        </svg>
+      </div>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">The Impact</span></header>
+
+      <div class="statement">
+        <span class="kicker" data-rise="1">The Impact</span>
+        <h2 class="statement__title" style="margin:20px 0 26px" data-rise="2">From a borrowed dataset<br>to a <em>working forensic tool.</em></h2>
+        <p class="lede" style="max-width:52ch; margin-bottom:34px" data-rise="3">A genus-level classifier, an honest cross-population benchmark, and a live identification platform — the groundwork for a <span class="hi">UAE skin-microbiome reference database.</span></p>
+        <ul class="icheck" style="flex-direction:row; gap:44px" data-rise="4">
+          <li>Court-ready ambition</li>
+          <li>Locally-relevant data</li>
+          <li>Deployable today</li>
+        </ul>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">15 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 16 · LIVE DEMONSTRATION
+         ============================================================ -->
+    <section class="slide" data-slide="16" aria-label="Live demonstration">
+      <span class="ghost-num" aria-hidden="true">16</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Machine Learning · Live Demonstration</span><span class="rail__spacer"></span><span class="rail__section">Live Demo</span></header>
+
+      <div class="split" style="grid-template-columns: 0.82fr 1.18fr; gap:44px; height:100%; align-items:center;">
+        <div data-rise="1">
+          <span class="kicker">Machine Learning · Live</span>
+          <h2 class="title t-44" style="margin:16px 0 22px; max-width:15ch">Forensic Microbiome <em>Identification Platform</em></h2>
+          <p class="lede">The ML classifier, running live — identify an unknown sample against the reference database.</p>
+          <div class="tag" style="margin-top:26px">▶ System online</div>
+        </div>
+        <figure class="shot" data-rise="2">
+          <div class="shot__bar"><i></i><i></i><i></i><span>Microbiome Forensics — Individual Identification System · v1.0</span></div>
+          <img src="assets/platform-screenshot.jpg" alt="Screenshot of the Microbiome Forensics individual identification platform showing an evidence-intake screen with abundance table and metadata upload, and a central fingerprint logo reading System Online.">
+        </figure>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">Identify an unknown sample against the reference database</span><span class="rail__spacer"></span><span class="rail__counter">16 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 17 · VISIT WEBSITE
+         ============================================================ -->
+    <section class="slide" data-slide="17" aria-label="Visit our website">
+      <span class="ghost-num" aria-hidden="true">17</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">UAE Skin Microbiome Explorer</span><span class="rail__spacer"></span><span class="rail__section">Visit</span></header>
+
+      <div class="split" style="grid-template-columns: 1.25fr 0.75fr; gap:44px; height:100%; align-items:center;">
+        <figure class="shot" data-rise="1">
+          <div class="shot__bar"><i></i><i></i><i></i><span>mahakhx.github.io/UAE-Skin-Microbiome-Explorer</span></div>
+          <img src="assets/website-screenshot.png" alt="Screenshot of the UAE Skin Microbiome Explorer website homepage, featuring an interactive Emirates map, a diversity section citing over 200 nationalities, and a database of 1,245 Dubai samples.">
+        </figure>
+        <div data-rise="2">
+          <span class="kicker">Visit our website</span>
+          <h2 class="title t-36" style="margin:16px 0 22px">Explore the <em>live database</em></h2>
+          <div style="display:flex; gap:22px; align-items:center; margin-bottom:24px">
+            <div class="qr"><img src="assets/qr-code.jpg" alt="QR code linking to the UAE Skin Microbiome Explorer website"></div>
+            <div>
+              <div class="cover__meta-label" style="margin-bottom:8px">Scan to open</div>
+              <p class="ref" style="color:var(--accent);font-size:12px">mahakhx.github.io/<br>UAE-Skin-Microbiome-Explorer</p>
+            </div>
+          </div>
+          <div class="metrics" style="gap:30px; margin-bottom:20px">
+            <div class="metric"><span class="stat__num" style="font-size:52px">1,245</span><span class="stat__unit">Samples</span></div>
+            <div class="metric"><span class="stat__num" style="font-size:52px">200+</span><span class="stat__unit">Nationalities</span></div>
+          </div>
+          <ul class="icheck" style="gap:9px"><li style="font-size:14px">Pioneering Gulf research</li><li style="font-size:14px">Diversity &amp; inclusion</li><li style="font-size:14px">Advancing global research</li></ul>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">Public database · Support scientific research</span><span class="rail__spacer"></span><span class="rail__counter">17 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 18 · CHALLENGES
+         ============================================================ -->
+    <section class="slide" data-slide="18" aria-label="Challenges">
+      <span class="ghost-num" aria-hidden="true">18</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Challenges</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">Challenges</span>
+        <h2 class="title t-44">Hurdles to clear before <em>court-ready</em> evidence</h2>
+      </div>
+
+      <div class="hgrid" style="margin-top:28px" data-rise="2">
+        <div class="hcell">
+          <svg class="hcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6M9 8h6l1 4a4 4 0 0 1-8 0z"/><path d="M8 22h8"/><path d="M10 22v-4M14 22v-4"/></svg>
+          <span class="hcell__h">Low-biomass samples</span>
+          <span class="hcell__b">Touch traces hold tiny amounts of DNA — strict contamination controls are essential.</span>
+        </div>
+        <div class="hcell">
+          <svg class="hcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
+          <span class="hcell__h">The microbiome drifts</span>
+          <span class="hcell__b">Skin communities shift with time and season, so samples must be collected close together.</span>
+        </div>
+        <div class="hcell">
+          <svg class="hcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          <span class="hcell__h">Lifestyle confounders</span>
+          <span class="hcell__b">Diet, hygiene products and cohabitation can blur the personal signal.</span>
+        </div>
+        <div class="hcell">
+          <svg class="hcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14a8 3 0 0 0 16 0V5"/><path d="M4 12a8 3 0 0 0 16 0"/></svg>
+          <span class="hcell__h">No local reference data</span>
+          <span class="hcell__b">Models only know what they're trained on — a UAE database must be built from scratch.</span>
+        </div>
+        <div class="hcell">
+          <svg class="hcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span class="hcell__h">Court-ready standards</span>
+          <span class="hcell__b">A validated protocol with a known error rate is needed for admissibility (Frye / Daubert).</span>
+        </div>
+        <div class="hcell">
+          <svg class="hcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="hcell__h">Cost, skills &amp; diversity</span>
+          <span class="hcell__b">Sequencing, trained staff and the UAE's mobile population all raise the bar.</span>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">Hurdles drawn from forensic skin-microbiome literature — Metcalf 2017 · Dass et al. 2026 · Lei et al. 2024 · Clarke et al. 2022</span><span class="rail__spacer"></span><span class="rail__counter">18 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 19 · CONCLUSIONS
+         ============================================================ -->
+    <section class="slide" data-slide="19" aria-label="Conclusions">
+      <span class="ghost-num" aria-hidden="true">19</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">Conclusions</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">Conclusions</span>
+        <h2 class="title t-44">What we established, <em>and what comes next</em></h2>
+      </div>
+
+      <div class="numlist" style="margin-top:34px" data-rise="2">
+        <div class="numitem">
+          <span class="numitem__n">1</span>
+          <div><div class="numitem__h">Individuals are identifiable</div><div class="numitem__b">Genus-level skin microbiome hits <span class="accent">92.6% Top-1</span> ID on a hard future-visit split — real personal signal, not chance.</div></div>
+        </div>
+        <div class="numitem">
+          <span class="numitem__n">2</span>
+          <div><div class="numitem__h">The signal is specific &amp; defensible</div><div class="numitem__b">Identity is carried by <i>Corynebacterium</i>, <i>Cutibacterium</i>, <i>Malassezia</i> and kin — matching published forensic markers, confirmed by our B/W test.</div></div>
+        </div>
+        <div class="numitem">
+          <span class="numitem__n">3</span>
+          <div><div class="numitem__h">Site and population matter</div><div class="numitem__b">ID works best at sebaceous sites; models don't transfer across populations — the Egypt gap is real and survives bootstrap.</div></div>
+        </div>
+        <div class="numitem">
+          <span class="numitem__n">4</span>
+          <div><div class="numitem__h">The real deliverable is local data</div><div class="numitem__b">Next: strain-level π on shotgun data (as Schmedes did) and a purpose-built <span class="hi">UAE / Gulf reference database.</span></div></div>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">19 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 20 · THANK YOU
+         ============================================================ -->
+    <section class="slide cover-slide" data-slide="20" aria-label="Thank you">
+      <div class="fingerprint" aria-hidden="true" style="right:-140px; top:50%; transform:translateY(-50%); width:560px; opacity:0.4; mask-image:radial-gradient(closest-side,#000 55%,transparent 82%);">
+        <svg viewBox="0 0 300 300" width="300" fill="none" stroke="#2fa877" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="150" cy="150" r="18"/>
+          <path d="M150 108 a42 42 0 0 1 42 42"/><path d="M108 150 a42 42 0 0 1 42 -42"/>
+          <path d="M150 84 a66 66 0 0 1 66 66"/><path d="M84 150 a66 66 0 0 1 66 -66"/>
+          <path d="M150 60 a90 90 0 0 1 90 90"/><path d="M60 150 a90 90 0 0 1 90 -90"/>
+          <path d="M150 36 a114 114 0 0 1 114 114"/><path d="M36 150 a114 114 0 0 1 114 -114"/>
+          <path d="M150 12 a138 138 0 0 1 138 138"/><path d="M12 150 a138 138 0 0 1 138 -138"/>
+        </svg>
+      </div>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Dubai Police · Future Forensics Pioneer Program · Group 6</span></header>
+
+      <div class="statement">
+        <img class="cover__logo" src="assets/dubai-police-footer.png" alt="Dubai Police" style="height:56px; margin-bottom:30px" data-rise="1">
+        <h2 class="cover__title" style="font-size:104px; margin:0 0 26px" data-rise="2">Thank <em>You</em></h2>
+        <p class="lede" style="font-size:20px; max-width:50ch" data-rise="3">Skin-microbiome individual identification — toward court-ready, locally-relevant forensic evidence.</p>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">20 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 21 · EXPLORE THE LIVE PLATFORM
+         ============================================================ -->
+    <section class="slide cover-slide" data-slide="21" aria-label="Explore the live platform">
+      <span class="ghost-num" aria-hidden="true">↗</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Dubai Police · Future Forensics Pioneer Program · Group 6</span></header>
+
+      <div class="split" style="grid-template-columns: 1.1fr 0.9fr; gap:56px; height:100%; align-items:center;">
+        <div data-rise="1">
+          <span class="kicker">Live Platform</span>
+          <h2 class="cover__title" style="font-size:78px; margin:18px 0 24px">Explore the<br><em>live platform</em></h2>
+          <p class="lede" style="font-size:19px; max-width:44ch">Scan to open the UAE Skin Microbiome Explorer and the running ML identification system.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:18px" data-rise="2">
+          <div class="qr" style="width:230px"><img src="assets/qr-code.jpg" alt="QR code linking to the UAE Skin Microbiome Explorer and identification platform"></div>
+          <p class="ref" style="text-align:center; color:var(--accent); font-size:12.5px">mahakhx.github.io/UAE-Skin-Microbiome-Explorer</p>
+        </div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="rail__spacer"></span><span class="rail__counter">21 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 22 · REFERENCES (primary sources)
+         ============================================================ -->
+    <section class="slide" data-slide="22" aria-label="References — primary sources">
+      <span class="ghost-num" aria-hidden="true">22</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">References</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">References</span>
+        <h2 class="title t-36">Primary sources</h2>
+      </div>
+
+      <div class="reflist" style="margin-top:26px" data-rise="2">
+        <div class="refitem"><div class="refitem__tag">Dataset<br>Slides 04, 06</div><div class="refitem__body">Oh, J., Byrd, A. L., Park, M., NISC Comparative Sequencing Program, Kong, H. H., &amp; Segre, J. A. (2016). Temporal stability of the human skin microbiome. <i>Cell, 165</i>(4), 854–866. <a href="https://doi.org/10.1016/j.cell.2016.04.008">doi.org/10.1016/j.cell.2016.04.008</a></div></div>
+        <div class="refitem"><div class="refitem__tag">Slides 02, 18</div><div class="refitem__body">Metcalf, J. L., Xu, Z. Z., Bouslimani, A., Dorrestein, P., Carter, D. O., &amp; Knight, R. (2017). Microbiome tools for forensic science. <i>Trends in Biotechnology, 35</i>(9), 814–823. <a href="https://doi.org/10.1016/j.tibtech.2017.03.006">doi.org/10.1016/j.tibtech.2017.03.006</a></div></div>
+        <div class="refitem"><div class="refitem__tag">Slides 02, 03, 18</div><div class="refitem__body">Dass, M., Abbai, N. S., &amp; Ghai, M. (2025). The human skin microbiome: Factors affecting individuality and application in forensic investigations. <i>International Journal of Legal Medicine.</i> <a href="https://doi.org/10.1007/s00414-025-03610-2">doi.org/10.1007/s00414-025-03610-2</a></div></div>
+        <div class="refitem"><div class="refitem__tag">Slide 07<br>Related work</div><div class="refitem__body">Schmedes, S. E., Woerner, A. E., &amp; Budowle, B. (2017). Forensic human identification using skin microbiomes. <i>Applied and Environmental Microbiology, 83</i>(22), e01672-17. <a href="https://doi.org/10.1128/AEM.01672-17">doi.org/10.1128/AEM.01672-17</a></div></div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">APA 7th edition</span><span class="rail__spacer"></span><span class="rail__counter">22 / 23</span></footer>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 23 · REFERENCES (geolocation & local data)
+         ============================================================ -->
+    <section class="slide" data-slide="23" aria-label="References — geolocation and local data">
+      <span class="ghost-num" aria-hidden="true">23</span>
+      <header class="rail rail--top"><span class="rail__dot"></span><span class="rail__brand">Microbes That Remember You</span><span class="rail__spacer"></span><span class="rail__section">References</span></header>
+
+      <div class="head" data-rise="1">
+        <span class="kicker">References</span>
+        <h2 class="title t-36">Geolocation &amp; local data</h2>
+      </div>
+
+      <div class="reflist" style="margin-top:24px" data-rise="2">
+        <div class="refitem"><div class="refitem__tag">Slide 03<br>Touch microbiome</div><div class="refitem__body">Procopio, N., Lovisolo, F., Sguazzi, G., Ghignone, S., Voyron, S., Migliario, M., Renò, F., Sellitto, F., D'Angiolella, G., Tozzo, P., Caenazzo, L., &amp; Gino, S. (2021). "Touch microbiome" as a potential tool for forensic investigation: A pilot study. <i>Journal of Forensic and Legal Medicine, 82,</i> 102223. <a href="https://doi.org/10.1016/j.jflm.2021.102223">doi.org/10.1016/j.jflm.2021.102223</a></div></div>
+        <div class="refitem"><div class="refitem__tag">Slide 14<br>China</div><div class="refitem__body">Lei, Y., Li, M., Zhang, H., Deng, Y., Dong, X., Chen, P., Li, Y., Zhang, S., Li, C., Wang, S., &amp; Tao, R. (2024). Comparative analysis of the human microbiome from four different regions of China and machine learning-based geographical inference. <i>mSphere, 9</i>(12), e00672-24. <a href="https://doi.org/10.1128/msphere.00672-24">doi.org/10.1128/msphere.00672-24</a></div></div>
+        <div class="refitem"><div class="refitem__tag">Slide 14<br>4 populations</div><div class="refitem__body">Clarke, T., Brinkac, L., Greco, C., Alleyne, A. T., Carrasco, P., Inostroza, C., Tau, T., Wisitrasameewong, W., Torralba, M. G., Nelson, K., &amp; Singh, H. (2022). Sampling from four geographically divergent young female populations demonstrates forensic geolocation potential in microbiomes. <i>Scientific Reports, 12,</i> 18547. <a href="https://doi.org/10.1038/s41598-022-21779-z">doi.org/10.1038/s41598-022-21779-z</a></div></div>
+        <div class="refitem"><div class="refitem__tag">Slides 05, 11–13<br>Egypt pilot</div><div class="refitem__body">Ramadan, M., Solyman, S., Taha, M., &amp; Hanora, A. (2016). Preliminary characterization of human skin microbiome in healthy Egyptian individuals. <i>Cell Journal, 18</i>(1), 33–39. <a href="https://doi.org/10.22074/cellj.2016.3985">doi.org/10.22074/cellj.2016.3985</a></div></div>
+      </div>
+
+      <footer class="rail rail--bottom"><span class="ref">APA 7th edition</span><span class="rail__spacer"></span><span class="rail__counter">23 / 23</span></footer>
+    </section>
+
+    <!-- progress track (screen only) -->
+    <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+  </div>
+
+  <!-- navigation controls -->
+  <nav class="controls" aria-label="Slide navigation">
+    <button class="ctrl" id="btnPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="ctrl" id="btnOverview" aria-label="Toggle slide overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+    <button class="ctrl" id="btnFull" aria-label="Toggle fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+    <button class="ctrl" id="btnNext" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+  </nav>
+
+  <div class="hint" id="hint"><b>← →</b> navigate · <b>F</b> fullscreen · <b>O</b> overview</div>
+
+  <!-- overview panel -->
+  <div class="overview" id="overview" role="dialog" aria-label="Slide overview" aria-modal="true">
+    <div class="overview__head">
+      <span class="overview__title">Slide Overview · 23 slides</span>
+      <button class="ctrl" id="btnCloseOverview" aria-label="Close overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="overview__grid" id="overviewGrid"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
