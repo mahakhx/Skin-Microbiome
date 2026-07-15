@@ -260,18 +260,18 @@
 
       <div class="split" style="grid-template-columns: 1fr 1fr; gap:44px; height:100%; align-items:center;">
         <figure class="plate" data-rise="1">
-          <img src="assets/fig-bw-ranking.png" alt="Horizontal bar chart ranking the most defensible individual-identifying taxa by between-person over within-person variance; Corynebacterium ranks highest, with a forensic threshold at a ratio of one.">
-          <figcaption class="plate__cap"><span class="plate__tag">Fig. 07</span> Most defensible individual-identifying taxa · B/W ratio (Oh 2016)</figcaption>
+          <img src="assets/fig-individual-signatures.png" alt="Heatmap of individual microbial signatures — each column a person, each row a skin microbe genus, red cells above the cohort average and blue cells below, with the mean percent abundance labelled in each cell.">
+          <figcaption class="plate__cap"><span class="plate__tag">Fig. 07</span> Individual microbial signatures — mean % abundance by person</figcaption>
         </figure>
         <div data-rise="2">
           <span class="kicker">Results · 03</span>
           <h2 class="title t-44" style="margin:16px 0 22px; max-width:15ch">Which taxa actually <em>identify a person</em></h2>
-          <p class="body" style="margin-bottom:14px"><span class="hi">The B/W ratio.</span> Between / within-person variance ranks each taxon. High B/W = consistent within a person, different between people = a forensic signature.</p>
+          <p class="body" style="margin-bottom:16px">Each column is one person; each row a skin microbe. <span class="hi">Red = more than the group average, blue = less</span> — the number is that person's mean % abundance.</p>
           <div class="card" style="margin-bottom:16px">
-            <div class="tag" style="margin-bottom:10px">Defensible shortlist</div>
-            <p class="body"><i>Corynebacterium</i> · <i>Cutibacterium</i> (+ phage) · <i>Malassezia</i> · <i>Gardnerella</i> · <i>Micrococcus</i> · <i>Enhydrobacter</i> — high B/W and abundant.</p>
+            <div class="tag" style="margin-bottom:10px">The takeaway</div>
+            <p class="body">Read down any column and a distinctive pattern appears — that person's <span class="hi">microbial signature</span>. No two columns look alike, and that individuality is what makes identification possible.</p>
           </div>
-          <p class="body muted">Rare high-B/W taxa are treated with caution — on near-zero-abundance genera the ratio is fragile (a sparsity artifact).</p>
+          <p class="body muted">Genera like <i>Corynebacterium</i>, <i>Cutibacterium</i> and <i>Malassezia</i> carry the strongest personal signal.</p>
         </div>
       </div>
 
@@ -579,8 +579,9 @@
             <li>Leading research in the Gulf</li>
           </ul>
         </div>
-        <div data-rise="5" style="display:flex; align-items:center; justify-content:center;">
+        <div data-rise="5" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;">
           <img src="assets/uae-map-emirates.png" alt="Map of the United Arab Emirates" style="width:100%; max-width:800px; height:auto;">
+          <span class="ref" style="text-align:center">United Arab Emirates</span>
         </div>
       </div>
 

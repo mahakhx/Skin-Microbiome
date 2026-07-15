@@ -434,8 +434,8 @@ button { font-family: inherit; }
    08. FIGURE PLATES & CHARTS
    ========================================================= */
 .plate {
-  background: var(--paper);
-  border: 1px solid var(--paper-edge);
+  background: linear-gradient(180deg, var(--surface-raised), var(--surface));
+  border: 1px solid var(--border-subtle);
   border-radius: 8px;
   padding: 14px 14px 12px;
   box-shadow: 0 24px 60px -24px rgba(0,0,0,0.6);
@@ -452,8 +452,8 @@ button { font-family: inherit; }
   font-size: 10.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6a6355;
-  border-top: 1px solid var(--paper-edge);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-subtle);
   padding-top: 9px;
 }
 .plate__tag { color: var(--accent-deep); font-weight: 600; }
